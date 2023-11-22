@@ -181,6 +181,8 @@ func (p *longRunningOperationPoller) Poll(ctx context.Context) (result *pollers.
 			// StorageSync@2020-03-01 (CloudEndpoints) returns `newReplicaGroup` rather than `InProgress` during creation/update
 			// See: https://github.com/hashicorp/go-azure-sdk/issues/565
 			"newReplicaGroup": pollers.PollingStatusInProgress,
+			// AnalysisServices @ 2017-08-01 (Servers) returns `Pausing` during Creation
+			"Pausing": pollers.PollingStatusInProgress,
 			// AnalysisServices @ 2017-08-01 (Servers) returns `Provisioning` during Creation
 			"Provisioning": pollers.PollingStatusInProgress,
 			// HealthBot @ 2022-08-08 (HealthBots CreateOrUpdate) returns `Working` during Creation
